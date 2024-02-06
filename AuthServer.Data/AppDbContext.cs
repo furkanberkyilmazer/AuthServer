@@ -25,6 +25,7 @@ namespace AuthServer.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfigurationsFromAssembly(GetType().Assembly);
+            builder.Entity<Product>().Property(e => e.Price).HasPrecision(10, 5);
 
             base.OnModelCreating(builder);
         }
